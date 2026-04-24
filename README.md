@@ -1,4 +1,4 @@
-# UPH DALTA Learning Management System
+# UPHSDM Teacher Learning Management System
 
 A fully functional Learning Management System (LMS) for the **University of Perpetual Help System DALTA — College of Computer Studies**, built as a high-fidelity interactive prototype following HCI principles and the institution's grading framework.
 
@@ -24,8 +24,8 @@ Implements the exact grading formula from the Grade Report for FINALE:
 - **Classes** — create, edit, delete classes; grid and list views
 - **Grade Sheet** — full tabular grade entry per class; auto-computed grades; individual score cards with expandable detail
 - **Students** — enroll, edit, remove students; grid and list views with grade summary
-- **Assignments** — manage assignments, research tasks, projects; filter by type and status
-- **Quizzes** — dedicated view for quiz management (QE1–QE4)
+- **Activities** — manage assignments, research tasks, projects, quizzes; filter by type and status
+- **Exams** — dedicated view for exam management
 
 ## Tech Stack
 
