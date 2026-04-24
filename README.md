@@ -1,6 +1,6 @@
 # UPHSDM Teacher Learning Management System
 
-A fully functional Learning Management System (LMS) for the **University of Perpetual Help System DALTA — College of Computer Studies**, built as a high-fidelity interactive prototype following HCI principles and the institution's grading framework.
+A fully functional Learning Management System (LMS) for the **University of Perpetual Help System DALTA — Molino Campus**, built as a high-fidelity interactive prototype following HCI principles and the institution's grading framework.
 
 ## Features
 
