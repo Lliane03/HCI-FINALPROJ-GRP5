@@ -1,0 +1,250 @@
+@import "tailwindcss" source("../");
+
+body {
+  @apply m-0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Smooth scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* Number input - hide arrows */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Grade sheet table */
+.grade-table th,
+.grade-table td {
+  @apply text-xs;
+}
+
+/* ────────────────────────────────────────────────────────────────────────── */
+/* HCI / accessibility modes                                                 */
+/* Activated by toggling classes on <html> from Preferences.                 */
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* Dark mode: override the light neutrals the LMS leans on. */
+html.hci-dark body { background-color: #0f172a; color: #e2e8f0; }
+html.hci-dark .bg-white { background-color: #1e293b !important; }
+html.hci-dark .bg-gray-50 { background-color: #0f172a !important; }
+html.hci-dark .bg-gray-100 { background-color: #1e293b !important; }
+html.hci-dark .bg-gray-200 { background-color: #334155 !important; }
+html.hci-dark .text-gray-900,
+html.hci-dark .text-gray-800,
+html.hci-dark .text-gray-700 { color: #e2e8f0 !important; }
+html.hci-dark .text-gray-600,
+html.hci-dark .text-gray-500 { color: #94a3b8 !important; }
+html.hci-dark .text-gray-400 { color: #64748b !important; }
+html.hci-dark .border-gray-100,
+html.hci-dark .border-gray-200,
+html.hci-dark .border-gray-300 { border-color: #334155 !important; }
+html.hci-dark .divide-gray-100 > :not([hidden]) ~ :not([hidden]),
+html.hci-dark .divide-gray-200 > :not([hidden]) ~ :not([hidden]) { border-color: #334155 !important; }
+html.hci-dark input,
+html.hci-dark select,
+html.hci-dark textarea { background-color: #0f172a; color: #e2e8f0; }
+html.hci-dark input::placeholder,
+html.hci-dark textarea::placeholder { color: #64748b; }
+html.hci-dark select option { background-color: #1e293b; color: #e2e8f0; }
+
+/* Hover backgrounds on gray scales would flash near-white panels in dark mode. */
+html.hci-dark .hover\:bg-gray-50:hover,
+html.hci-dark .hover\:bg-gray-100:hover { background-color: #334155 !important; }
+html.hci-dark .hover\:bg-gray-200:hover,
+html.hci-dark .hover\:bg-gray-300:hover { background-color: #475569 !important; }
+
+/* Tinted semantic surfaces (bg-*-50/100) with dark tinted text.                */
+/* Flip to deep tinted surfaces + bright tinted text so labels stay readable.   */
+html.hci-dark .bg-blue-50,
+html.hci-dark .bg-blue-100,
+html.hci-dark .hover\:bg-blue-50:hover,
+html.hci-dark .hover\:bg-blue-100:hover { background-color: #1e3a5f !important; }
+html.hci-dark .text-blue-600,
+html.hci-dark .text-blue-700,
+html.hci-dark .text-blue-800 { color: #93c5fd !important; }
+
+html.hci-dark .bg-red-50,
+html.hci-dark .bg-red-100,
+html.hci-dark .hover\:bg-red-50:hover,
+html.hci-dark .hover\:bg-red-100:hover { background-color: #4a1520 !important; }
+html.hci-dark .text-red-600,
+html.hci-dark .text-red-700,
+html.hci-dark .text-red-800 { color: #fca5a5 !important; }
+
+html.hci-dark .bg-green-50,
+html.hci-dark .bg-green-100,
+html.hci-dark .bg-emerald-50,
+html.hci-dark .bg-emerald-100,
+html.hci-dark .hover\:bg-green-50:hover,
+html.hci-dark .hover\:bg-emerald-50:hover { background-color: #12432f !important; }
+html.hci-dark .text-green-600,
+html.hci-dark .text-green-700,
+html.hci-dark .text-green-800,
+html.hci-dark .text-emerald-600,
+html.hci-dark .text-emerald-700,
+html.hci-dark .text-emerald-800 { color: #86efac !important; }
+
+html.hci-dark .bg-yellow-50,
+html.hci-dark .bg-yellow-100,
+html.hci-dark .bg-amber-50,
+html.hci-dark .bg-amber-100 { background-color: #3f2e10 !important; }
+html.hci-dark .text-yellow-600,
+html.hci-dark .text-yellow-700,
+html.hci-dark .text-yellow-800,
+html.hci-dark .text-amber-600,
+html.hci-dark .text-amber-700,
+html.hci-dark .text-amber-800 { color: #fcd34d !important; }
+
+html.hci-dark .bg-purple-50,
+html.hci-dark .bg-purple-100 { background-color: #2e1a4d !important; }
+html.hci-dark .text-purple-600,
+html.hci-dark .text-purple-700,
+html.hci-dark .text-purple-800 { color: #d8b4fe !important; }
+
+html.hci-dark .bg-indigo-50,
+html.hci-dark .bg-indigo-100 { background-color: #1e1f4a !important; }
+html.hci-dark .text-indigo-600,
+html.hci-dark .text-indigo-700,
+html.hci-dark .text-indigo-800 { color: #a5b4fc !important; }
+
+html.hci-dark .bg-pink-50,
+html.hci-dark .bg-pink-100 { background-color: #4a1535 !important; }
+html.hci-dark .text-pink-600,
+html.hci-dark .text-pink-700,
+html.hci-dark .text-pink-800 { color: #f9a8d4 !important; }
+
+/* UPHSDM brand palette (used across hci-help, login, profile).               */
+/* These arbitrary hex classes weren't caught by the gray/tinted rules above, */
+/* so dark burgundy text stayed on near-white cream panels.                   */
+html.hci-dark .bg-\[\#f9f5ea\],
+html.hci-dark .bg-\[\#fdf8ec\] { background-color: #0f172a !important; }
+html.hci-dark .bg-\[\#FFF8E7\] { background-color: #2a2416 !important; }
+html.hci-dark .hover\:bg-\[\#fdf8ec\]:hover { background-color: #334155 !important; }
+html.hci-dark .open\:bg-\[\#fdf8ec\][open] { background-color: #172033 !important; }
+html.hci-dark .odd\:bg-white:nth-child(odd) { background-color: #1e293b !important; }
+html.hci-dark .even\:bg-\[\#fdf8ec\]:nth-child(even) { background-color: #172033 !important; }
+
+/* The cream page-background gradient resolves to a flat dark surface. */
+html.hci-dark .bg-gradient-to-b.from-\[\#f9f5ea\] {
+  background-image: none !important;
+  background-color: #0f172a !important;
+}
+
+/* Dark burgundy accents are invisible on dark surfaces. Lift to light red. */
+html.hci-dark .text-\[\#6B0F1A\] { color: #fca5a5 !important; }
+html.hci-dark .hover\:text-\[\#8B1A2B\]:hover { color: #fecaca !important; }
+html.hci-dark .border-\[\#D4AF37\] { border-color: #8a6d1e !important; }
+
+/* Gold borders at lower opacities disappear on dark cards — lift them to a */
+/* more saturated gold so panel edges and dividers stay visible.             */
+html.hci-dark .border-\[\#D4AF37\]\/20,
+html.hci-dark .border-\[\#D4AF37\]\/30,
+html.hci-dark .border-\[\#D4AF37\]\/40,
+html.hci-dark .border-\[\#D4AF37\]\/50,
+html.hci-dark .border-\[\#D4AF37\]\/60 { border-color: rgba(212,175,55,0.6) !important; }
+
+/* Burgundy tinted pills (bg-[#6B0F1A]/10, border-[#6B0F1A]/20) fade into the  */
+/* dark navy background. Swap to a brighter cream-toned fill and lifted border */
+/* so Closed/Research status badges stay legible alongside the remapped text. */
+html.hci-dark .bg-\[\#6B0F1A\]\/10 { background-color: rgba(252,165,165,0.14) !important; }
+html.hci-dark .border-\[\#6B0F1A\]\/20 { border-color: rgba(252,165,165,0.45) !important; }
+html.hci-dark .divide-\[\#D4AF37\]\/20 > :not([hidden]) ~ :not([hidden]),
+html.hci-dark .divide-\[\#D4AF37\]\/30 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(212,175,55,0.35) !important;
+}
+html.hci-dark .hover\:border-\[\#D4AF37\]:hover { border-color: #d4af37 !important; }
+
+/* Solid burgundy fills sit fine on dark navy, but the hover shade needs a    */
+/* lift to stay distinguishable from the base.                                */
+html.hci-dark .hover\:bg-\[\#8B1A2B\]:hover { background-color: #a31f36 !important; }
+
+/* Classes page palette: burgundy #7b1e3a text on cream #faf3e0 panels, with  */
+/* #fdf9ee row hover and #ebe0c4 button hover. None of these arbitrary hexes  */
+/* are caught by the gray/tinted rules, so in dark mode the thead, toolbar    */
+/* segmented control, and "View Grades" button stay near-white while the     */
+/* burgundy link text disappears. Flip cream surfaces to dark slate and lift */
+/* the burgundy text to a light red that reads on the remapped surfaces.     */
+html.hci-dark .bg-\[\#faf3e0\] { background-color: #334155 !important; }
+/* Row hover must stay distinguishable from the list container's remapped    */
+/* bg-white (#1e293b); lift it to a slate that reads as a visible hover.     */
+html.hci-dark .bg-\[\#fdf9ee\],
+html.hci-dark .hover\:bg-\[\#fdf9ee\]:hover { background-color: #293549 !important; }
+html.hci-dark .hover\:bg-\[\#faf3e0\]:hover { background-color: #334155 !important; }
+html.hci-dark .hover\:bg-\[\#ebe0c4\]:hover { background-color: #475569 !important; }
+html.hci-dark .text-\[\#7b1e3a\] { color: #fca5a5 !important; }
+html.hci-dark .hover\:text-\[\#7b1e3a\]:hover { color: #fecaca !important; }
+
+/* Gold text and fill accents stay readable on dark cards — no remap needed — */
+/* but the gold-on-cream callouts need their cream surface darkened.          */
+html.hci-dark .bg-\[\#fdf8ec\].hover\:bg-\[\#fdf8ec\],
+html.hci-dark .hover\:bg-\[\#fdf8ec\]:hover { background-color: #1f2a42 !important; }
+
+/* High contrast: push text darker and borders heavier for better legibility. */
+html.hci-contrast body { color: #000; }
+html.hci-contrast .text-gray-500,
+html.hci-contrast .text-gray-600,
+html.hci-contrast .text-gray-700,
+html.hci-contrast .text-gray-800,
+html.hci-contrast .text-gray-900 { color: #000 !important; }
+html.hci-contrast .border-gray-100,
+html.hci-contrast .border-gray-200,
+html.hci-contrast .border-gray-300 { border-color: #000 !important; }
+html.hci-contrast.hci-dark body,
+html.hci-contrast.hci-dark .text-gray-500,
+html.hci-contrast.hci-dark .text-gray-600,
+html.hci-contrast.hci-dark .text-gray-700,
+html.hci-contrast.hci-dark .text-gray-800,
+html.hci-contrast.hci-dark .text-gray-900 { color: #fff !important; }
+html.hci-contrast.hci-dark .border-gray-100,
+html.hci-contrast.hci-dark .border-gray-200,
+html.hci-contrast.hci-dark .border-gray-300 { border-color: #fff !important; }
+
+/* Reduced motion: suppress transitions and animations everywhere. */
+html.hci-reduce-motion *,
+html.hci-reduce-motion *::before,
+html.hci-reduce-motion *::after {
+  transition-duration: 0s !important;
+  animation-duration: 0s !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+}
+
+/* Larger text: scale the base font size. */
+html.hci-large-text { font-size: 112.5%; }
+
+/* Dyslexia-friendly font stack: use rounded, evenly-spaced faces. */
+html.hci-dyslexic body,
+html.hci-dyslexic input,
+html.hci-dyslexic select,
+html.hci-dyslexic textarea,
+html.hci-dyslexic button {
+  font-family: "Atkinson Hyperlegible", "Comic Sans MS", "Trebuchet MS", Verdana, sans-serif;
+  letter-spacing: 0.02em;
+}
+
